@@ -1,6 +1,11 @@
-# Version: 0.0.1
-FROM ubuntu
-LABEL maintainer="ayoub@gmail.com"
-#RUN apt-get update; apt-get install -y nginx
-#RUN echo 'Hi, I am in your container' \ >/var/www/html/index.html
-EXPOSE 81
+FROM openjdk:16-alpine3.13
+
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:go-offline
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
