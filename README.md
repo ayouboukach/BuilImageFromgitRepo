@@ -1,1 +1,1 @@
-# Build a docker image with With Automate buil DockerHub And GitHub Repository
+# Build a docker image with With Automate build DockerHub And GitHub Repository
